@@ -53,10 +53,11 @@ let users = [
     "phone": "+1 (837) 586-3283",
     "address": "314 Dunne Place, Bawcomville, Guam, 9053"
     }
-    ]
+    ];
 
     function balanceCheck(users) {
-        const balanceAbove = users.balance > '$2,000.00';
+        const fBalance = (Number((users.balance).replace('$','').replace(',','')));
+        const balanceAbove = fBalance > 2000;
         return balanceAbove;
     }
 
@@ -70,10 +71,7 @@ let users = [
     console.log(onlyPhoneArray);
 
     function addAllBalances (accumulator, users) {
-        const newBalance = (users.balance).split('');
-        const amendedBalance = newBalance.shift();
-        const finalBalance = newBalance.join('');
-        const fBalance = Number(finalBalance.replace(',','').replace('.',''));
+        const fBalance = (Number((users.balance).replace('$','').replace(',','')));
         return accumulator + fBalance;
     }
 
